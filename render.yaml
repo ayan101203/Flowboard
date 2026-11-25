@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: flowboard-kanban
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/board
+    disk:
+      name: board-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: DB_PATH
+        value: /var/data/board.sqlite
+      - key: FAILURE_RATE
+        value: "0"
