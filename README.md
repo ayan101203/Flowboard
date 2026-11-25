@@ -168,6 +168,62 @@ docker run --rm -p 3001:3001 -v flowboard-data:/data flowboard
 
 Do not expose real sensitive data on a public unauthenticated demo board.
 
+### Deploy using NPM
+
+The application can be built and run in production mode using npm without Docker.
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ayan101203/Flowboard.git
+   cd Flowboard
+   ```
+
+2. Ensure Node.js version 22.16.0 or a compatible newer Node 22 release is installed.
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Build the React and TypeScript frontend:
+
+   ```bash
+   npm run build
+   ```
+
+5. Start the production server:
+
+   ```bash
+   npm start
+   ```
+
+6. Open the application in your browser:
+
+   http://localhost:3001
+
+The Node.js backend serves both the frontend and REST API through a
+single server. The SQLite database is initialized automatically.
+
+To start the application in development mode instead, use:
+
+```bash
+npm run dev
+```
+
+The development frontend is available at http://localhost:5173.
+
+To run the automated tests:
+
+```bash
+npm test
+```
+
+For public deployment using npm, run the production commands on a
+Node.js-compatible hosting platform with persistent storage and
+configure the required environment variables.
+
 ## Project layout
 
 ```text
